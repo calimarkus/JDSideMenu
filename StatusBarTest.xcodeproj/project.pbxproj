@@ -19,6 +19,7 @@
 		5C3C72CB17F344A300BDA128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C72B317F344A300BDA128 /* UIKit.framework */; };
 		5C3C72D317F344A300BDA128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C3C72D117F344A300BDA128 /* InfoPlist.strings */; };
 		5C3C72D517F344A300BDA128 /* StatusBarTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72D417F344A300BDA128 /* StatusBarTestTests.m */; };
+		5C3C72E017F344D800BDA128 /* SHStatusBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		5C3C72D017F344A300BDA128 /* StatusBarTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StatusBarTestTests-Info.plist"; sourceTree = "<group>"; };
 		5C3C72D217F344A300BDA128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C3C72D417F344A300BDA128 /* StatusBarTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusBarTestTests.m; sourceTree = "<group>"; };
+		5C3C72DE17F344D800BDA128 /* SHStatusBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHStatusBarViewController.h; sourceTree = "<group>"; };
+		5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHStatusBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				5C3C72BF17F344A300BDA128 /* SHAppDelegate.m */,
 				5C3C72C117F344A300BDA128 /* Images.xcassets */,
 				5C3C72B617F344A300BDA128 /* Supporting Files */,
+				5C3C72DE17F344D800BDA128 /* SHStatusBarViewController.h */,
+				5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */,
 			);
 			path = StatusBarTest;
 			sourceTree = "<group>";
@@ -193,7 +198,7 @@
 				ORGANIZATIONNAME = "Simon Holroyd";
 				TargetAttributes = {
 					5C3C72C617F344A300BDA128 = {
-						TestTargetID = 5C3C72AB17F344A300BDA128;
+						TestTargetID = 5C3C72AB17F344A300BDA128 /* StatusBarTest */;
 					};
 				};
 			};
@@ -242,6 +247,7 @@
 			files = (
 				5C3C72BC17F344A300BDA128 /* main.m in Sources */,
 				5C3C72C017F344A300BDA128 /* SHAppDelegate.m in Sources */,
+				5C3C72E017F344D800BDA128 /* SHStatusBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
