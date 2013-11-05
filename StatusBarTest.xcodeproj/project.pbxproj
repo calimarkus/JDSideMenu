@@ -10,27 +10,11 @@
 		5C3C72B017F344A300BDA128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C72AF17F344A300BDA128 /* Foundation.framework */; };
 		5C3C72B217F344A300BDA128 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C72B117F344A300BDA128 /* CoreGraphics.framework */; };
 		5C3C72B417F344A300BDA128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C72B317F344A300BDA128 /* UIKit.framework */; };
-		5C3C72BA17F344A300BDA128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C3C72B817F344A300BDA128 /* InfoPlist.strings */; };
 		5C3C72BC17F344A300BDA128 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72BB17F344A300BDA128 /* main.m */; };
 		5C3C72C017F344A300BDA128 /* SHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72BF17F344A300BDA128 /* SHAppDelegate.m */; };
 		5C3C72C217F344A300BDA128 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C3C72C117F344A300BDA128 /* Images.xcassets */; };
-		5C3C72C917F344A300BDA128 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C72C817F344A300BDA128 /* XCTest.framework */; };
-		5C3C72CA17F344A300BDA128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C72AF17F344A300BDA128 /* Foundation.framework */; };
-		5C3C72CB17F344A300BDA128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C72B317F344A300BDA128 /* UIKit.framework */; };
-		5C3C72D317F344A300BDA128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C3C72D117F344A300BDA128 /* InfoPlist.strings */; };
-		5C3C72D517F344A300BDA128 /* StatusBarTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72D417F344A300BDA128 /* StatusBarTestTests.m */; };
 		5C3C72E017F344D800BDA128 /* SHStatusBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5C3C72CC17F344A300BDA128 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C3C72A417F344A300BDA128 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5C3C72AB17F344A300BDA128;
-			remoteInfo = StatusBarTest;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5C3C72AC17F344A300BDA128 /* StatusBarTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusBarTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,17 +22,12 @@
 		5C3C72B117F344A300BDA128 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5C3C72B317F344A300BDA128 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5C3C72B717F344A300BDA128 /* StatusBarTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StatusBarTest-Info.plist"; sourceTree = "<group>"; };
-		5C3C72B917F344A300BDA128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C3C72BB17F344A300BDA128 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C3C72BD17F344A300BDA128 /* StatusBarTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StatusBarTest-Prefix.pch"; sourceTree = "<group>"; };
 		5C3C72BE17F344A300BDA128 /* SHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAppDelegate.h; sourceTree = "<group>"; };
 		5C3C72BF17F344A300BDA128 /* SHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAppDelegate.m; sourceTree = "<group>"; };
 		5C3C72C117F344A300BDA128 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5C3C72C717F344A300BDA128 /* StatusBarTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatusBarTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C3C72C817F344A300BDA128 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		5C3C72D017F344A300BDA128 /* StatusBarTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StatusBarTestTests-Info.plist"; sourceTree = "<group>"; };
-		5C3C72D217F344A300BDA128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5C3C72D417F344A300BDA128 /* StatusBarTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusBarTestTests.m; sourceTree = "<group>"; };
 		5C3C72DE17F344D800BDA128 /* SHStatusBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHStatusBarViewController.h; sourceTree = "<group>"; };
 		5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHStatusBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,16 +43,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C3C72C417F344A300BDA128 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C3C72C917F344A300BDA128 /* XCTest.framework in Frameworks */,
-				5C3C72CB17F344A300BDA128 /* UIKit.framework in Frameworks */,
-				5C3C72CA17F344A300BDA128 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +50,6 @@
 			isa = PBXGroup;
 			children = (
 				5C3C72B517F344A300BDA128 /* StatusBarTest */,
-				5C3C72CE17F344A300BDA128 /* StatusBarTestTests */,
 				5C3C72AE17F344A300BDA128 /* Frameworks */,
 				5C3C72AD17F344A300BDA128 /* Products */,
 			);
@@ -91,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				5C3C72AC17F344A300BDA128 /* StatusBarTest.app */,
-				5C3C72C717F344A300BDA128 /* StatusBarTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,10 +79,10 @@
 			children = (
 				5C3C72BE17F344A300BDA128 /* SHAppDelegate.h */,
 				5C3C72BF17F344A300BDA128 /* SHAppDelegate.m */,
-				5C3C72C117F344A300BDA128 /* Images.xcassets */,
-				5C3C72B617F344A300BDA128 /* Supporting Files */,
 				5C3C72DE17F344D800BDA128 /* SHStatusBarViewController.h */,
 				5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */,
+				5C3C72C117F344A300BDA128 /* Images.xcassets */,
+				5C3C72B617F344A300BDA128 /* Supporting Files */,
 			);
 			path = StatusBarTest;
 			sourceTree = "<group>";
@@ -124,27 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				5C3C72B717F344A300BDA128 /* StatusBarTest-Info.plist */,
-				5C3C72B817F344A300BDA128 /* InfoPlist.strings */,
 				5C3C72BB17F344A300BDA128 /* main.m */,
 				5C3C72BD17F344A300BDA128 /* StatusBarTest-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5C3C72CE17F344A300BDA128 /* StatusBarTestTests */ = {
-			isa = PBXGroup;
-			children = (
-				5C3C72D417F344A300BDA128 /* StatusBarTestTests.m */,
-				5C3C72CF17F344A300BDA128 /* Supporting Files */,
-			);
-			path = StatusBarTestTests;
-			sourceTree = "<group>";
-		};
-		5C3C72CF17F344A300BDA128 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5C3C72D017F344A300BDA128 /* StatusBarTestTests-Info.plist */,
-				5C3C72D117F344A300BDA128 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -169,24 +117,6 @@
 			productReference = 5C3C72AC17F344A300BDA128 /* StatusBarTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5C3C72C617F344A300BDA128 /* StatusBarTestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5C3C72DB17F344A300BDA128 /* Build configuration list for PBXNativeTarget "StatusBarTestTests" */;
-			buildPhases = (
-				5C3C72C317F344A300BDA128 /* Sources */,
-				5C3C72C417F344A300BDA128 /* Frameworks */,
-				5C3C72C517F344A300BDA128 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5C3C72CD17F344A300BDA128 /* PBXTargetDependency */,
-			);
-			name = StatusBarTestTests;
-			productName = StatusBarTestTests;
-			productReference = 5C3C72C717F344A300BDA128 /* StatusBarTestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,11 +126,6 @@
 				CLASSPREFIX = SH;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Simon Holroyd";
-				TargetAttributes = {
-					5C3C72C617F344A300BDA128 = {
-						TestTargetID = 5C3C72AB17F344A300BDA128 /* StatusBarTest */;
-					};
-				};
 			};
 			buildConfigurationList = 5C3C72A717F344A300BDA128 /* Build configuration list for PBXProject "StatusBarTest" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -215,7 +140,6 @@
 			projectRoot = "";
 			targets = (
 				5C3C72AB17F344A300BDA128 /* StatusBarTest */,
-				5C3C72C617F344A300BDA128 /* StatusBarTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,16 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C3C72BA17F344A300BDA128 /* InfoPlist.strings in Resources */,
 				5C3C72C217F344A300BDA128 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C3C72C517F344A300BDA128 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C3C72D317F344A300BDA128 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,42 +166,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C3C72C317F344A300BDA128 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C3C72D517F344A300BDA128 /* StatusBarTestTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5C3C72CD17F344A300BDA128 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5C3C72AB17F344A300BDA128 /* StatusBarTest */;
-			targetProxy = 5C3C72CC17F344A300BDA128 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5C3C72B817F344A300BDA128 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5C3C72B917F344A300BDA128 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5C3C72D117F344A300BDA128 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5C3C72D217F344A300BDA128 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5C3C72D617F344A300BDA128 /* Debug */ = {
@@ -387,48 +267,6 @@
 			};
 			name = Release;
 		};
-		5C3C72DC17F344A300BDA128 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StatusBarTest.app/StatusBarTest";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "StatusBarTest/StatusBarTest-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "StatusBarTestTests/StatusBarTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		5C3C72DD17F344A300BDA128 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StatusBarTest.app/StatusBarTest";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "StatusBarTest/StatusBarTest-Prefix.pch";
-				INFOPLIST_FILE = "StatusBarTestTests/StatusBarTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -448,14 +286,7 @@
 				5C3C72DA17F344A300BDA128 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		5C3C72DB17F344A300BDA128 /* Build configuration list for PBXNativeTarget "StatusBarTestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5C3C72DC17F344A300BDA128 /* Debug */,
-				5C3C72DD17F344A300BDA128 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
