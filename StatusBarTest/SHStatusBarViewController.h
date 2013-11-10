@@ -10,4 +10,12 @@
 
 @interface SHStatusBarViewController : UIViewController
 
+@property (nonatomic, readonly) UIViewController *contentController;
+@property (nonatomic, readonly) UIViewController *menuController;
+
+@property (nonatomic, assign) CGFloat menuWidth;
+
+- (id)initWithContentController:(UIViewController*)contentController
+                 menuController:(UIViewController*)menuController;
+
 @end

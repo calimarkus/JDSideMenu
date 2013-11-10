@@ -14,9 +14,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[SHStatusBarViewController alloc] init];
-    self.window.backgroundColor = [UIColor clearColor];
     [self.window makeKeyAndVisible];
+    
+    UIViewController *menu = [[UIViewController alloc] init];
+    UIViewController *content = [[UIViewController alloc] init];
+    menu.view.backgroundColor = [UIColor magentaColor];
+    content.view.backgroundColor = [UIColor cyanColor];
+    self.window.rootViewController = [[SHStatusBarViewController alloc] initWithContentController:content
+                                                                                   menuController:menu];
     
     return YES;
 }
