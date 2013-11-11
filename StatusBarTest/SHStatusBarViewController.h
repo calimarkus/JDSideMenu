@@ -18,4 +18,9 @@
 - (id)initWithContentController:(UIViewController*)contentController
                  menuController:(UIViewController*)menuController;
 
+- (void)showMenuAnimated:(BOOL)animated;
+- (void)hideMenuAnimated:(BOOL)animated;
+
+- (BOOL)isMenuVisible;
+
 @end

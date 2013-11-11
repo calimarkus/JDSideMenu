@@ -9,6 +9,7 @@
 #import "SHStatusBarViewController.h"
 
 const CGFloat SHStatusBarDefaultMenuWidth = 260.0;
+const CGFloat SHStatusBarDefaultDamping = 0.5;
 
 @interface SHStatusBarViewController ()
 @property (nonatomic, strong) UIViewController *contentController;
@@ -64,44 +65,56 @@ const CGFloat SHStatusBarDefaultMenuWidth = 260.0;
 
 - (void)showHideView:(UITapGestureRecognizer*)recognizer
 {
-    BOOL menuVisible = !CGAffineTransformEqualToTransform(self.containerView.transform, CGAffineTransformIdentity);
-    
-    // hide menu animation
-    if (menuVisible) {
-        __weak typeof(self) blockSelf = self;
-        [UIView animateWithDuration:0.4 animations:^{
-            blockSelf.containerView.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-            [blockSelf.lastSnapShotView removeFromSuperview];
-            [blockSelf.menuController.view removeFromSuperview];
-            blockSelf.statusBarHidden = NO;
-            blockSelf.lastSnapShotView = nil;
-        }];
-    }
-    
-    // show menu animation
-    else {
-        // add menu view
-        CGRect menuFrame, restFrame;
-        CGRectDivide(self.view.bounds, &menuFrame, &restFrame, self.menuWidth, CGRectMinXEdge);
-        self.menuController.view.frame = menuFrame;
-        self.menuController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.view.backgroundColor = self.menuController.view.backgroundColor;
-        [self.view insertSubview:self.menuController.view atIndex:0];
-        
-        // add snapshotview, hide statusbar
-        [self.containerView addSubview:[self snapShotView]];
-        self.statusBarHidden = YES;
-        
-        // animate
-        __weak typeof(self) blockSelf = self;
-        [UIView animateWithDuration:1.2 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:1.0 options:0 animations:^{
-            blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
-        } completion:nil];
+    if (![self isMenuVisible]) {
+        [self showMenuAnimated:YES];
+    } else {
+        [self hideMenuAnimated:YES];
     }
 }
 
-#pragma mark Status Bar State
+- (void)showMenuAnimated:(BOOL)animated;
+{
+    // add menu view
+    CGRect menuFrame, restFrame;
+    CGRectDivide(self.view.bounds, &menuFrame, &restFrame, self.menuWidth, CGRectMinXEdge);
+    self.menuController.view.frame = menuFrame;
+    self.menuController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.view.backgroundColor = self.menuController.view.backgroundColor;
+    [self.view insertSubview:self.menuController.view atIndex:0];
+    
+    // add snapshotview, hide statusbar
+    [self.containerView addSubview:[self snapShotView]];
+    self.statusBarHidden = YES;
+    
+    // animate
+    __weak typeof(self) blockSelf = self;
+    [UIView animateWithDuration:animated ? 1.2 : 0.0 delay:0 usingSpringWithDamping:SHStatusBarDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
+        blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
+    } completion:nil];
+}
+
+- (void)hideMenuAnimated:(BOOL)animated;
+{
+    __weak typeof(self) blockSelf = self;
+    [UIView animateWithDuration:0.4 animations:^{
+        blockSelf.containerView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        [blockSelf.lastSnapShotView removeFromSuperview];
+        [blockSelf.menuController.view removeFromSuperview];
+        blockSelf.statusBarHidden = NO;
+        blockSelf.lastSnapShotView = nil;
+    }];
+}
+
+#pragma mark State
+
+- (BOOL)isMenuVisible;
+{
+    return !CGAffineTransformEqualToTransform(self.containerView.transform,
+                                              CGAffineTransformIdentity);
+}
+
+#pragma mark Status Bar
 
 - (void)setStatusBarHidden:(BOOL)statusBarHidden;
 {
