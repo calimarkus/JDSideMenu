@@ -14,6 +14,9 @@
 		D27F25231830594800F04515 /* JDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F25221830594800F04515 /* JDAppDelegate.m */; };
 		D27F25251830594800F04515 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27F25241830594800F04515 /* Images.xcassets */; };
 		D27F2543183059E800F04515 /* JDSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F2542183059E800F04515 /* JDSideMenu.m */; };
+		D27F254718305C6B00F04515 /* JDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F254518305C6B00F04515 /* JDMenuViewController.m */; };
+		D27F254818305C6B00F04515 /* JDMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27F254618305C6B00F04515 /* JDMenuViewController.xib */; };
+		D27F254B18305E4000F04515 /* UIViewController+JDSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F254A18305E4000F04515 /* UIViewController+JDSideMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,11 @@
 		D27F252B1830594800F04515 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D27F2541183059E800F04515 /* JDSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JDSideMenu.h; path = Classes/JDSideMenu.h; sourceTree = SOURCE_ROOT; };
 		D27F2542183059E800F04515 /* JDSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JDSideMenu.m; path = Classes/JDSideMenu.m; sourceTree = SOURCE_ROOT; };
+		D27F254418305C6B00F04515 /* JDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDMenuViewController.h; sourceTree = "<group>"; };
+		D27F254518305C6B00F04515 /* JDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDMenuViewController.m; sourceTree = "<group>"; };
+		D27F254618305C6B00F04515 /* JDMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JDMenuViewController.xib; sourceTree = "<group>"; };
+		D27F254918305E4000F04515 /* UIViewController+JDSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JDSideMenu.h"; path = "Classes/UIViewController+JDSideMenu.h"; sourceTree = SOURCE_ROOT; };
+		D27F254A18305E4000F04515 /* UIViewController+JDSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JDSideMenu.m"; path = "Classes/UIViewController+JDSideMenu.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +87,13 @@
 			children = (
 				D27F25211830594800F04515 /* JDAppDelegate.h */,
 				D27F25221830594800F04515 /* JDAppDelegate.m */,
+				D27F254418305C6B00F04515 /* JDMenuViewController.h */,
+				D27F254518305C6B00F04515 /* JDMenuViewController.m */,
+				D27F254618305C6B00F04515 /* JDMenuViewController.xib */,
 				D27F2541183059E800F04515 /* JDSideMenu.h */,
 				D27F2542183059E800F04515 /* JDSideMenu.m */,
+				D27F254918305E4000F04515 /* UIViewController+JDSideMenu.h */,
+				D27F254A18305E4000F04515 /* UIViewController+JDSideMenu.m */,
 				D27F25241830594800F04515 /* Images.xcassets */,
 				D27F25191830594800F04515 /* Supporting Files */,
 			);
@@ -150,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D27F25251830594800F04515 /* Images.xcassets in Resources */,
+				D27F254818305C6B00F04515 /* JDMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +177,8 @@
 				D27F25231830594800F04515 /* JDAppDelegate.m in Sources */,
 				D27F2543183059E800F04515 /* JDSideMenu.m in Sources */,
 				D27F251F1830594800F04515 /* main.m in Sources */,
+				D27F254718305C6B00F04515 /* JDMenuViewController.m in Sources */,
+				D27F254B18305E4000F04515 /* UIViewController+JDSideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

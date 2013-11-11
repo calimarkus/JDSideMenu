@@ -67,13 +67,8 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
 - (void)setContentController:(UIViewController*)contentController
                      animted:(BOOL)animated;
 {
-    if (self.contentController) {
-        [self.contentController willMoveToParentViewController:nil];
-        [self.contentController removeFromParentViewController];
-        [self.contentController didMoveToParentViewController:nil];
-        [self.contentController.view removeFromSuperview];
-    }
-    
+    if (contentController == nil) return;
+    UIViewController *previousController = self.contentController;
     _contentController = contentController;
     
     // add childcontroller
@@ -82,9 +77,25 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     [self.contentController didMoveToParentViewController:self];
     
     // add subview
-    [self.containerView addSubview:self.contentController.view];
     self.contentController.view.frame = self.containerView.bounds;
     self.contentController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    // animate in
+    CGFloat offset = self.view.frame.size.width;
+    [UIView animateWithDuration:JDSideMenuDefaultCloseAnimationTime/2.0 animations:^{
+        self.containerView.transform = CGAffineTransformMakeTranslation(offset, 0);
+    } completion:^(BOOL finished) {
+        // move to container view
+        [self.containerView addSubview:self.contentController.view];
+        
+        // remove old controller
+        [previousController willMoveToParentViewController:nil];
+        [previousController removeFromParentViewController];
+        [previousController didMoveToParentViewController:nil];
+        [previousController.view removeFromSuperview];
+        
+        [self hideMenuAnimated:YES];
+    }];
 }
 
 #pragma mark Animation
@@ -109,7 +120,7 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     [self.view insertSubview:self.menuController.view atIndex:0];
     
     // add snapshotview, hide statusbar
-    [self.containerView addSubview:[self snapShotView]];
+    [self addSnapShotView];
     self.statusBarHidden = YES;
     
     // animate
@@ -157,10 +168,11 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
 
 #pragma mark Snapshot
 
-- (UIView *)snapShotView
+- (void)addSnapShotView;
 {
+    [self.lastSnapShotView removeFromSuperview];
     self.lastSnapShotView = [[UIScreen mainScreen] snapshotViewAfterScreenUpdates:NO];
-    return self.lastSnapShotView;
+    [self.containerView addSubview:self.lastSnapShotView];
 }
 
 @end
