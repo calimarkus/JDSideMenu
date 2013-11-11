@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D27F25131830594800F04515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27F25121830594800F04515 /* Foundation.framework */; };
+		D27F25151830594800F04515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27F25141830594800F04515 /* CoreGraphics.framework */; };
+		D27F25171830594800F04515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27F25161830594800F04515 /* UIKit.framework */; };
+		D27F251F1830594800F04515 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F251E1830594800F04515 /* main.m */; };
+		D27F25231830594800F04515 /* JDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F25221830594800F04515 /* JDAppDelegate.m */; };
+		D27F25251830594800F04515 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27F25241830594800F04515 /* Images.xcassets */; };
+		D27F2543183059E800F04515 /* JDSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F2542183059E800F04515 /* JDSideMenu.m */; };
+		D27F254718305C6B00F04515 /* JDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F254518305C6B00F04515 /* JDMenuViewController.m */; };
+		D27F254818305C6B00F04515 /* JDMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27F254618305C6B00F04515 /* JDMenuViewController.xib */; };
+		D27F254B18305E4000F04515 /* UIViewController+JDSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F254A18305E4000F04515 /* UIViewController+JDSideMenu.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D27F250F1830594800F04515 /* JDSideMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDSideMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D27F25121830594800F04515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D27F25141830594800F04515 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D27F25161830594800F04515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D27F251A1830594800F04515 /* JDSideMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JDSideMenu-Info.plist"; sourceTree = "<group>"; };
+		D27F251E1830594800F04515 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D27F25201830594800F04515 /* JDSideMenu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JDSideMenu-Prefix.pch"; sourceTree = "<group>"; };
+		D27F25211830594800F04515 /* JDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDAppDelegate.h; sourceTree = "<group>"; };
+		D27F25221830594800F04515 /* JDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDAppDelegate.m; sourceTree = "<group>"; };
+		D27F25241830594800F04515 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D27F252B1830594800F04515 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D27F2541183059E800F04515 /* JDSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JDSideMenu.h; path = Classes/JDSideMenu.h; sourceTree = SOURCE_ROOT; };
+		D27F2542183059E800F04515 /* JDSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JDSideMenu.m; path = Classes/JDSideMenu.m; sourceTree = SOURCE_ROOT; };
+		D27F254418305C6B00F04515 /* JDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDMenuViewController.h; sourceTree = "<group>"; };
+		D27F254518305C6B00F04515 /* JDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDMenuViewController.m; sourceTree = "<group>"; };
+		D27F254618305C6B00F04515 /* JDMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JDMenuViewController.xib; sourceTree = "<group>"; };
+		D27F254918305E4000F04515 /* UIViewController+JDSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JDSideMenu.h"; path = "Classes/UIViewController+JDSideMenu.h"; sourceTree = SOURCE_ROOT; };
+		D27F254A18305E4000F04515 /* UIViewController+JDSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JDSideMenu.m"; path = "Classes/UIViewController+JDSideMenu.m"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D27F250C1830594800F04515 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27F25151830594800F04515 /* CoreGraphics.framework in Frameworks */,
+				D27F25171830594800F04515 /* UIKit.framework in Frameworks */,
+				D27F25131830594800F04515 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D27F25061830594800F04515 = {
+			isa = PBXGroup;
+			children = (
+				D27F25181830594800F04515 /* JDSideMenu */,
+				D27F25111830594800F04515 /* Frameworks */,
+				D27F25101830594800F04515 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D27F25101830594800F04515 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D27F250F1830594800F04515 /* JDSideMenu.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D27F25111830594800F04515 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D27F25121830594800F04515 /* Foundation.framework */,
+				D27F25141830594800F04515 /* CoreGraphics.framework */,
+				D27F25161830594800F04515 /* UIKit.framework */,
+				D27F252B1830594800F04515 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D27F25181830594800F04515 /* JDSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D27F25211830594800F04515 /* JDAppDelegate.h */,
+				D27F25221830594800F04515 /* JDAppDelegate.m */,
+				D27F254418305C6B00F04515 /* JDMenuViewController.h */,
+				D27F254518305C6B00F04515 /* JDMenuViewController.m */,
+				D27F254618305C6B00F04515 /* JDMenuViewController.xib */,
+				D27F2541183059E800F04515 /* JDSideMenu.h */,
+				D27F2542183059E800F04515 /* JDSideMenu.m */,
+				D27F254918305E4000F04515 /* UIViewController+JDSideMenu.h */,
+				D27F254A18305E4000F04515 /* UIViewController+JDSideMenu.m */,
+				D27F25241830594800F04515 /* Images.xcassets */,
+				D27F25191830594800F04515 /* Supporting Files */,
+			);
+			path = JDSideMenu;
+			sourceTree = "<group>";
+		};
+		D27F25191830594800F04515 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D27F251A1830594800F04515 /* JDSideMenu-Info.plist */,
+				D27F251E1830594800F04515 /* main.m */,
+				D27F25201830594800F04515 /* JDSideMenu-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D27F250E1830594800F04515 /* JDSideMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D27F253B1830594800F04515 /* Build configuration list for PBXNativeTarget "JDSideMenu" */;
+			buildPhases = (
+				D27F250B1830594800F04515 /* Sources */,
+				D27F250C1830594800F04515 /* Frameworks */,
+				D27F250D1830594800F04515 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JDSideMenu;
+			productName = JDSideMenu;
+			productReference = D27F250F1830594800F04515 /* JDSideMenu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D27F25071830594800F04515 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JD;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Markus Emrich";
+			};
+			buildConfigurationList = D27F250A1830594800F04515 /* Build configuration list for PBXProject "JDSideMenu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D27F25061830594800F04515;
+			productRefGroup = D27F25101830594800F04515 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D27F250E1830594800F04515 /* JDSideMenu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D27F250D1830594800F04515 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27F25251830594800F04515 /* Images.xcassets in Resources */,
+				D27F254818305C6B00F04515 /* JDMenuViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D27F250B1830594800F04515 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27F25231830594800F04515 /* JDAppDelegate.m in Sources */,
+				D27F2543183059E800F04515 /* JDSideMenu.m in Sources */,
+				D27F251F1830594800F04515 /* main.m in Sources */,
+				D27F254718305C6B00F04515 /* JDMenuViewController.m in Sources */,
+				D27F254B18305E4000F04515 /* UIViewController+JDSideMenu.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D27F25391830594800F04515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D27F253A1830594800F04515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D27F253C1830594800F04515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JDSideMenu/JDSideMenu-Prefix.pch";
+				INFOPLIST_FILE = "JDSideMenu/JDSideMenu-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D27F253D1830594800F04515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JDSideMenu/JDSideMenu-Prefix.pch";
+				INFOPLIST_FILE = "JDSideMenu/JDSideMenu-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D27F250A1830594800F04515 /* Build configuration list for PBXProject "JDSideMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D27F25391830594800F04515 /* Debug */,
+				D27F253A1830594800F04515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D27F253B1830594800F04515 /* Build configuration list for PBXNativeTarget "JDSideMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D27F253C1830594800F04515 /* Debug */,
+				D27F253D1830594800F04515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D27F25071830594800F04515 /* Project object */;
+}
