@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SHAppDelegate : UIResponder <UIApplicationDelegate>
+@interface JDAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

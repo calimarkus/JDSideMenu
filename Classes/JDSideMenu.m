@@ -8,8 +8,8 @@
 
 #import "JDSideMenu.h"
 
-const CGFloat SHStatusBarDefaultMenuWidth = 260.0;
-const CGFloat SHStatusBarDefaultDamping = 0.5;
+const CGFloat JDSideMenuDefaultMenuWidth = 260.0;
+const CGFloat JDSideMenuDefaultDamping = 0.5;
 
 @interface JDSideMenu ()
 @property (nonatomic, assign) BOOL statusBarHidden;
@@ -27,7 +27,7 @@ const CGFloat SHStatusBarDefaultDamping = 0.5;
         _contentController = contentController;
         _menuController = menuController;
         
-        _menuWidth = SHStatusBarDefaultMenuWidth;
+        _menuWidth = JDSideMenuDefaultMenuWidth;
     }
     return self;
 }
@@ -111,7 +111,7 @@ const CGFloat SHStatusBarDefaultDamping = 0.5;
     
     // animate
     __weak typeof(self) blockSelf = self;
-    [UIView animateWithDuration:animated ? 1.2 : 0.0 delay:0 usingSpringWithDamping:SHStatusBarDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
+    [UIView animateWithDuration:animated ? 1.2 : 0.0 delay:0 usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
         blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
     } completion:nil];
 }

@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Markus Emrich. All rights reserved.
 //
 
-#import "SHAppDelegate.h"
+#import "JDAppDelegate.h"
 #import "JDSideMenu.h"
 
-@implementation SHAppDelegate
+@implementation JDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,7 +21,7 @@
     menu.view.backgroundColor = [UIColor magentaColor];
     content.view.backgroundColor = [UIColor cyanColor];
     self.window.rootViewController = [[JDSideMenu alloc] initWithContentController:content
-                                                                                   menuController:menu];
+                                                                    menuController:menu];
     
     return YES;
 }
