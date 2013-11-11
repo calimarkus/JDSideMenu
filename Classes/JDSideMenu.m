@@ -11,6 +11,9 @@
 const CGFloat JDSideMenuDefaultMenuWidth = 260.0;
 const CGFloat JDSideMenuDefaultDamping = 0.5;
 
+const CGFloat JDSideMenuDefaultOpenAnimationTime = 1.2;
+const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
+
 @interface JDSideMenu ()
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, strong) UIView *containerView;
@@ -111,7 +114,7 @@ const CGFloat JDSideMenuDefaultDamping = 0.5;
     
     // animate
     __weak typeof(self) blockSelf = self;
-    [UIView animateWithDuration:animated ? 1.2 : 0.0 delay:0 usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
+    [UIView animateWithDuration:animated ? JDSideMenuDefaultOpenAnimationTime : 0.0 delay:0 usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
         blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
     } completion:nil];
 }
@@ -119,7 +122,7 @@ const CGFloat JDSideMenuDefaultDamping = 0.5;
 - (void)hideMenuAnimated:(BOOL)animated;
 {
     __weak typeof(self) blockSelf = self;
-    [UIView animateWithDuration:0.4 animations:^{
+    [UIView animateWithDuration:JDSideMenuDefaultCloseAnimationTime animations:^{
         blockSelf.containerView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         [blockSelf.lastSnapShotView removeFromSuperview];
