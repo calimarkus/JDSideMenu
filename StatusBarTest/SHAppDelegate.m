@@ -2,12 +2,12 @@
 //  SHAppDelegate.m
 //  StatusBarTest
 //
-//  Created by Simon Holroyd on 9/25/13.
-//  Copyright (c) 2013 Simon Holroyd. All rights reserved.
+//  Created by Markus Emrich on 11/11/13.
+//  Copyright (c) 2013 Markus Emrich. All rights reserved.
 //
 
 #import "SHAppDelegate.h"
-#import "SHStatusBarViewController.h"
+#import "JDSideMenu.h"
 
 @implementation SHAppDelegate
 
@@ -20,7 +20,7 @@
     UIViewController *content = [[UIViewController alloc] init];
     menu.view.backgroundColor = [UIColor magentaColor];
     content.view.backgroundColor = [UIColor cyanColor];
-    self.window.rootViewController = [[SHStatusBarViewController alloc] initWithContentController:content
+    self.window.rootViewController = [[JDSideMenu alloc] initWithContentController:content
                                                                                    menuController:menu];
     
     return YES;

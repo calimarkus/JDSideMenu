@@ -2,8 +2,8 @@
 //  main.m
 //  StatusBarTest
 //
-//  Created by Simon Holroyd on 9/25/13.
-//  Copyright (c) 2013 Simon Holroyd. All rights reserved.
+//  Created by Markus Emrich on 9/25/13.
+//  Copyright (c) 2013 Markus Emrich. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

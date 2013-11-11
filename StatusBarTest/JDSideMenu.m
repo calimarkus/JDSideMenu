@@ -1,23 +1,23 @@
 //
-//  SHStatusBarViewController.m
+//  JDSideMenu.m
 //  StatusBarTest
 //
-//  Created by Simon Holroyd on 9/25/13.
-//  Copyright (c) 2013 Simon Holroyd. All rights reserved.
+//  Created by Markus Emrich on 11/11/13.
+//  Copyright (c) 2013 Markus Emrich. All rights reserved.
 //
 
-#import "SHStatusBarViewController.h"
+#import "JDSideMenu.h"
 
 const CGFloat SHStatusBarDefaultMenuWidth = 260.0;
 const CGFloat SHStatusBarDefaultDamping = 0.5;
 
-@interface SHStatusBarViewController ()
+@interface JDSideMenu ()
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UIView *lastSnapShotView;
 @end
 
-@implementation SHStatusBarViewController
+@implementation JDSideMenu
 
 - (id)initWithContentController:(UIViewController*)contentController
                  menuController:(UIViewController*)menuController;

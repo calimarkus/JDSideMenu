@@ -13,7 +13,7 @@
 		5C3C72BC17F344A300BDA128 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72BB17F344A300BDA128 /* main.m */; };
 		5C3C72C017F344A300BDA128 /* SHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72BF17F344A300BDA128 /* SHAppDelegate.m */; };
 		5C3C72C217F344A300BDA128 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C3C72C117F344A300BDA128 /* Images.xcassets */; };
-		5C3C72E017F344D800BDA128 /* SHStatusBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */; };
+		5C3C72E017F344D800BDA128 /* JDSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3C72DF17F344D800BDA128 /* JDSideMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 		5C3C72BF17F344A300BDA128 /* SHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAppDelegate.m; sourceTree = "<group>"; };
 		5C3C72C117F344A300BDA128 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C3C72C817F344A300BDA128 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		5C3C72DE17F344D800BDA128 /* SHStatusBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHStatusBarViewController.h; sourceTree = "<group>"; };
-		5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHStatusBarViewController.m; sourceTree = "<group>"; };
+		5C3C72DE17F344D800BDA128 /* JDSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSideMenu.h; sourceTree = "<group>"; };
+		5C3C72DF17F344D800BDA128 /* JDSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDSideMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +79,8 @@
 			children = (
 				5C3C72BE17F344A300BDA128 /* SHAppDelegate.h */,
 				5C3C72BF17F344A300BDA128 /* SHAppDelegate.m */,
-				5C3C72DE17F344D800BDA128 /* SHStatusBarViewController.h */,
-				5C3C72DF17F344D800BDA128 /* SHStatusBarViewController.m */,
+				5C3C72DE17F344D800BDA128 /* JDSideMenu.h */,
+				5C3C72DF17F344D800BDA128 /* JDSideMenu.m */,
 				5C3C72C117F344A300BDA128 /* Images.xcassets */,
 				5C3C72B617F344A300BDA128 /* Supporting Files */,
 			);
@@ -162,7 +162,7 @@
 			files = (
 				5C3C72BC17F344A300BDA128 /* main.m in Sources */,
 				5C3C72C017F344A300BDA128 /* SHAppDelegate.m in Sources */,
-				5C3C72E017F344D800BDA128 /* SHStatusBarViewController.m in Sources */,
+				5C3C72E017F344D800BDA128 /* JDSideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

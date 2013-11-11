@@ -1,14 +1,14 @@
 //
-//  SHStatusBarViewController.h
+//  JDSideMenu.h
 //  StatusBarTest
 //
-//  Created by Simon Holroyd on 9/25/13.
-//  Copyright (c) 2013 Simon Holroyd. All rights reserved.
+//  Created by Markus Emrich on 11/11/13.
+//  Copyright (c) 2013 Markus Emrich. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SHStatusBarViewController : UIViewController
+@interface JDSideMenu : UIViewController
 
 @property (nonatomic, readonly) UIViewController *contentController;
 @property (nonatomic, readonly) UIViewController *menuController;
