@@ -12,9 +12,6 @@ const CGFloat SHStatusBarDefaultMenuWidth = 260.0;
 const CGFloat SHStatusBarDefaultDamping = 0.5;
 
 @interface SHStatusBarViewController ()
-@property (nonatomic, strong) UIViewController *contentController;
-@property (nonatomic, strong) UIViewController *menuController;
-
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UIView *lastSnapShotView;
@@ -53,12 +50,38 @@ const CGFloat SHStatusBarDefaultDamping = 0.5;
     _containerView = [[UIView alloc] initWithFrame:self.view.bounds];
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.containerView addSubview:self.contentController.view];
+    self.contentController.view.frame = self.containerView.bounds;
     self.contentController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_containerView];
     
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc]
                                      initWithTarget:self
                                      action:@selector(showHideView:)]];
+}
+
+#pragma mark controller replacement
+
+- (void)setContentController:(UIViewController*)contentController
+                     animted:(BOOL)animated;
+{
+    if (self.contentController) {
+        [self.contentController willMoveToParentViewController:nil];
+        [self.contentController removeFromParentViewController];
+        [self.contentController didMoveToParentViewController:nil];
+        [self.contentController.view removeFromSuperview];
+    }
+    
+    _contentController = contentController;
+    
+    // add childcontroller
+    [self.contentController willMoveToParentViewController:self];
+    [self addChildViewController:self.contentController];
+    [self.contentController didMoveToParentViewController:self];
+    
+    // add subview
+    [self.containerView addSubview:self.contentController.view];
+    self.contentController.view.frame = self.containerView.bounds;
+    self.contentController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 }
 
 #pragma mark Animation
