@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JDMenuViewController : UIViewController
-
-- (IBAction)switchController:(id)sender;
+@interface JDMenuViewController : UITableViewController
 
 @end

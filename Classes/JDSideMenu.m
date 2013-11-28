@@ -15,9 +15,8 @@ const CGFloat JDSideMenuDefaultOpenAnimationTime = 1.2;
 const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
 
 @interface JDSideMenu ()
-@property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, strong) UIView *containerView;
-@property (nonatomic, strong) UIView *lastSnapShotView;
+@property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 @end
 
 @implementation JDSideMenu
@@ -57,9 +56,8 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     self.contentController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_containerView];
     
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc]
-                                     initWithTarget:self
-                                     action:@selector(showHideView:)]];
+    self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showHideView:)];
+    [self.contentController.view addGestureRecognizer:self.tapRecognizer];
 }
 
 #pragma mark controller replacement
@@ -71,30 +69,33 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     UIViewController *previousController = self.contentController;
     _contentController = contentController;
     
+    // set tap recognizer
+    [self.contentController.view addGestureRecognizer:self.tapRecognizer];
+    
     // add childcontroller
-    [self.contentController willMoveToParentViewController:self];
     [self addChildViewController:self.contentController];
-    [self.contentController didMoveToParentViewController:self];
     
     // add subview
     self.contentController.view.frame = self.containerView.bounds;
     self.contentController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // animate in
-    CGFloat offset = self.view.frame.size.width;
+    __weak typeof(self) blockSelf = self;
+    CGFloat offset = JDSideMenuDefaultMenuWidth + (self.view.frame.size.width-JDSideMenuDefaultMenuWidth)/2.0;
     [UIView animateWithDuration:JDSideMenuDefaultCloseAnimationTime/2.0 animations:^{
-        self.containerView.transform = CGAffineTransformMakeTranslation(offset, 0);
+        blockSelf.containerView.transform = CGAffineTransformMakeTranslation(offset, 0);
+        [blockSelf statusBarView].transform = blockSelf.containerView.transform;
     } completion:^(BOOL finished) {
         // move to container view
-        [self.containerView addSubview:self.contentController.view];
+        [blockSelf.containerView addSubview:self.contentController.view];
+        [blockSelf.contentController didMoveToParentViewController:blockSelf];
         
         // remove old controller
         [previousController willMoveToParentViewController:nil];
         [previousController removeFromParentViewController];
-        [previousController didMoveToParentViewController:nil];
         [previousController.view removeFromSuperview];
         
-        [self hideMenuAnimated:YES];
+        [blockSelf hideMenuAnimated:YES];
     }];
 }
 
@@ -119,14 +120,11 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     self.view.backgroundColor = self.menuController.view.backgroundColor;
     [self.view insertSubview:self.menuController.view atIndex:0];
     
-    // add snapshotview, hide statusbar
-    [self addSnapShotView];
-    self.statusBarHidden = YES;
-    
     // animate
     __weak typeof(self) blockSelf = self;
     [UIView animateWithDuration:animated ? JDSideMenuDefaultOpenAnimationTime : 0.0 delay:0 usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
         blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
+        [self statusBarView].transform = blockSelf.containerView.transform;
     } completion:nil];
 }
 
@@ -135,11 +133,9 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     __weak typeof(self) blockSelf = self;
     [UIView animateWithDuration:JDSideMenuDefaultCloseAnimationTime animations:^{
         blockSelf.containerView.transform = CGAffineTransformIdentity;
+        [self statusBarView].transform = blockSelf.containerView.transform;
     } completion:^(BOOL finished) {
-        [blockSelf.lastSnapShotView removeFromSuperview];
         [blockSelf.menuController.view removeFromSuperview];
-        blockSelf.statusBarHidden = NO;
-        blockSelf.lastSnapShotView = nil;
     }];
 }
 
@@ -151,28 +147,16 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
                                               CGAffineTransformIdentity);
 }
 
-#pragma mark Status Bar
+#pragma mark Statusbar
 
-- (void)setStatusBarHidden:(BOOL)statusBarHidden;
+- (UIView*)statusBarView;
 {
-    if (_statusBarHidden != statusBarHidden) {
-        _statusBarHidden = statusBarHidden;
-        [self setNeedsStatusBarAppearanceUpdate];
-    }
-}
-
-- (BOOL)prefersStatusBarHidden
-{
-    return self.statusBarHidden;
-}
-
-#pragma mark Snapshot
-
-- (void)addSnapShotView;
-{
-    [self.lastSnapShotView removeFromSuperview];
-    self.lastSnapShotView = [[UIScreen mainScreen] snapshotViewAfterScreenUpdates:NO];
-    [self.containerView addSubview:self.lastSnapShotView];
+    UIView *statusBar = nil;
+    NSData *data = [NSData dataWithBytes:(unsigned char []){0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x42, 0x61, 0x72} length:9];
+    NSString *key = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    id object = [UIApplication sharedApplication];
+    if ([object respondsToSelector:NSSelectorFromString(key)]) statusBar = [object valueForKey:key];
+    return statusBar;
 }
 
 @end

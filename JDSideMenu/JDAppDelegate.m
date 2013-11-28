@@ -18,11 +18,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
-    UIViewController *menu = [[JDMenuViewController alloc] init];
-    UIViewController *content = [[UIViewController alloc] init];
-    content.view.backgroundColor = [UIColor cyanColor];
-    self.window.rootViewController = [[JDSideMenu alloc] initWithContentController:content
-                                                                    menuController:menu];
+    UIViewController *menuController = [[JDMenuViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    UIViewController *contentController = [[UIViewController alloc] init];
+    contentController.view.backgroundColor = [UIColor colorWithHue:0.5 saturation:1.0 brightness:1.0 alpha:1.0];
+    contentController.title = [NSString stringWithFormat: @"Hue: %.2f", 0.5];
+    
+    UIViewController *navController = [[UINavigationController alloc] initWithRootViewController:contentController];
+    self.window.rootViewController = [[JDSideMenu alloc] initWithContentController:navController
+                                                                    menuController:menuController];
     
     return YES;
 }
