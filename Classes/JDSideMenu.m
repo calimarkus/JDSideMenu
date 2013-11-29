@@ -8,15 +8,19 @@
 
 #import "JDSideMenu.h"
 
+// constants
+const CGFloat JDSideMenuMinimumRelativePanDistanceToOpen = 0.33;
 const CGFloat JDSideMenuDefaultMenuWidth = 260.0;
 const CGFloat JDSideMenuDefaultDamping = 0.5;
 
+// animation times
 const CGFloat JDSideMenuDefaultOpenAnimationTime = 1.2;
 const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
 
 @interface JDSideMenu ()
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
+@property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 @end
 
 @implementation JDSideMenu
@@ -30,6 +34,8 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
         _menuController = menuController;
         
         _menuWidth = JDSideMenuDefaultMenuWidth;
+        _tapGestureEnabled = YES;
+        _panGestureEnabled = YES;
     }
     return self;
 }
@@ -41,23 +47,24 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     [super viewDidLoad];
     
     // add childcontroller
-    [self.menuController willMoveToParentViewController:self];
     [self addChildViewController:self.menuController];
     [self.menuController didMoveToParentViewController:self];
-    [self.contentController willMoveToParentViewController:self];
     [self addChildViewController:self.contentController];
     [self.contentController didMoveToParentViewController:self];
     
     // add subviews
     _containerView = [[UIView alloc] initWithFrame:self.view.bounds];
-    _containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _containerView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
     [self.containerView addSubview:self.contentController.view];
     self.contentController.view.frame = self.containerView.bounds;
     self.contentController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_containerView];
     
-    self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showHideView:)];
-    [self.contentController.view addGestureRecognizer:self.tapRecognizer];
+    // setup gesture recognizers
+    self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognized:)];
+    self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
+    [self.containerView addGestureRecognizer:self.tapRecognizer];
+    [self.containerView addGestureRecognizer:self.panRecognizer];
 }
 
 #pragma mark controller replacement
@@ -68,9 +75,6 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     if (contentController == nil) return;
     UIViewController *previousController = self.contentController;
     _contentController = contentController;
-    
-    // set tap recognizer
-    [self.contentController.view addGestureRecognizer:self.tapRecognizer];
     
     // add childcontroller
     [self addChildViewController:self.contentController];
@@ -101,8 +105,10 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
 
 #pragma mark Animation
 
-- (void)showHideView:(UITapGestureRecognizer*)recognizer
+- (void)tapRecognized:(UITapGestureRecognizer*)recognizer
 {
+    if (!self.tapGestureEnabled) return;
+    
     if (![self isMenuVisible]) {
         [self showMenuAnimated:YES];
     } else {
@@ -110,22 +116,61 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     }
 }
 
+- (void)panRecognized:(UIPanGestureRecognizer*)recognizer
+{
+    if (!self.panGestureEnabled) return;
+    
+    CGPoint translation = [recognizer translationInView:recognizer.view];
+    CGPoint velocity = [recognizer velocityInView:recognizer.view];
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan: {
+            [self addMenuControllerView];
+            [recognizer setTranslation:CGPointMake(recognizer.view.frame.origin.x, 0) inView:recognizer.view];
+            break;
+        }
+        case UIGestureRecognizerStateChanged: {
+            [recognizer.view setTransform:CGAffineTransformMakeTranslation(translation.x, 0)];
+            [self statusBarView].transform = recognizer.view.transform;
+            break;
+        }
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled: {
+            if (velocity.x > 5.0 || (velocity.x >= -1.0 && translation.x > JDSideMenuMinimumRelativePanDistanceToOpen*self.menuWidth)) {
+                [self showMenuAnimated:YES];
+            } else {
+                [self hideMenuAnimated:YES];
+            }
+        }
+        default:
+            break;
+    }
+}
+
+- (void)addMenuControllerView;
+{
+    if (self.menuController.view.superview == nil) {
+        CGRect menuFrame, restFrame;
+        CGRectDivide(self.view.bounds, &menuFrame, &restFrame, self.menuWidth, CGRectMinXEdge);
+        self.menuController.view.frame = menuFrame;
+        self.menuController.view.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
+        self.view.backgroundColor = self.menuController.view.backgroundColor;
+        [self.view insertSubview:self.menuController.view atIndex:0];
+    }
+}
+
 - (void)showMenuAnimated:(BOOL)animated;
 {
     // add menu view
-    CGRect menuFrame, restFrame;
-    CGRectDivide(self.view.bounds, &menuFrame, &restFrame, self.menuWidth, CGRectMinXEdge);
-    self.menuController.view.frame = menuFrame;
-    self.menuController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.view.backgroundColor = self.menuController.view.backgroundColor;
-    [self.view insertSubview:self.menuController.view atIndex:0];
+    [self addMenuControllerView];
     
     // animate
     __weak typeof(self) blockSelf = self;
-    [UIView animateWithDuration:animated ? JDSideMenuDefaultOpenAnimationTime : 0.0 delay:0 usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
-        blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
-        [self statusBarView].transform = blockSelf.containerView.transform;
-    } completion:nil];
+    [UIView animateWithDuration:animated ? JDSideMenuDefaultOpenAnimationTime : 0.0 delay:0
+         usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
+             blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
+             [self statusBarView].transform = blockSelf.containerView.transform;
+         } completion:nil];
 }
 
 - (void)hideMenuAnimated:(BOOL)animated;
