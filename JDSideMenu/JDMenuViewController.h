@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JDMenuViewController : UITableViewController
+@interface JDMenuViewController : UIViewController
 
 @end

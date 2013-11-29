@@ -18,7 +18,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
-    UIViewController *menuController = [[JDMenuViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    UIViewController *menuController = [[JDMenuViewController alloc] init];
     UIViewController *contentController = [[UIViewController alloc] init];
     contentController.view.backgroundColor = [UIColor colorWithHue:0.5 saturation:1.0 brightness:1.0 alpha:1.0];
     contentController.title = [NSString stringWithFormat: @"Hue: %.2f", 0.5];

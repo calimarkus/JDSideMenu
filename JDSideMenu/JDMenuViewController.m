@@ -11,53 +11,19 @@
 #import "JDMenuViewController.h"
 
 @interface JDMenuViewController ()
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+- (IBAction)switchController:(id)sender;
 @end
 
 @implementation JDMenuViewController
 
-- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
 {
-    [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor clearColor];
+    [super viewDidLayoutSubviews];
+    self.scrollView.contentSize = CGRectInset(self.scrollView.bounds, 0, -1).size;
 }
 
-#pragma mark UITableViewDelegate
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
-{
-    return 1;
-}
-
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-{
-    // create / dequeue cell
-    static NSString* identifier = @"identifier";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
-        cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
-    cell.textLabel.text = @"Switch Controller";
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-{
-    [self switchController:[tableView cellForRowAtIndexPath:indexPath]];
-}
-
-- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
-{
-    return @"Side Menu";
-}
-
-#pragma mark Actions
-
-- (void)switchController:(id)sender
+- (IBAction)switchController:(id)sender;
 {
     CGFloat randomHue = (arc4random()%256/256.0);
     UIViewController *viewController = [[UIViewController alloc] init];
