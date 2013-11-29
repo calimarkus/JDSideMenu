@@ -16,6 +16,12 @@
 
 @implementation JDMenuViewController
 
+- (void)viewDidLoad;
+{
+    [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor clearColor];
+}
+
 #pragma mark UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;

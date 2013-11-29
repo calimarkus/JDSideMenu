@@ -24,8 +24,10 @@
     contentController.title = [NSString stringWithFormat: @"Hue: %.2f", 0.5];
     
     UIViewController *navController = [[UINavigationController alloc] initWithRootViewController:contentController];
-    self.window.rootViewController = [[JDSideMenu alloc] initWithContentController:navController
-                                                                    menuController:menuController];
+    JDSideMenu *sideMenu = [[JDSideMenu alloc] initWithContentController:navController
+                                                          menuController:menuController];
+    [sideMenu setBackgroundImage:[UIImage imageNamed:@"menuwallpaper"]];
+    self.window.rootViewController = sideMenu;
     
     return YES;
 }

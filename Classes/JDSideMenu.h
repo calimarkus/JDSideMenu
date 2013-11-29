@@ -23,9 +23,12 @@
 - (void)setContentController:(UIViewController*)contentController
                      animted:(BOOL)animated;
 
+// show / hide manually
 - (void)showMenuAnimated:(BOOL)animated;
 - (void)hideMenuAnimated:(BOOL)animated;
-
 - (BOOL)isMenuVisible;
+
+// background
+- (void)setBackgroundImage:(UIImage*)image;
 
 @end

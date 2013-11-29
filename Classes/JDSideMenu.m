@@ -18,6 +18,7 @@ const CGFloat JDSideMenuDefaultOpenAnimationTime = 1.2;
 const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
 
 @interface JDSideMenu ()
+@property (nonatomic, strong) UIImageView *backgroundView;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 @property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
@@ -65,6 +66,21 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
     [self.containerView addGestureRecognizer:self.tapRecognizer];
     [self.containerView addGestureRecognizer:self.panRecognizer];
+}
+
+- (void)setBackgroundImage:(UIImage*)image;
+{
+    if (!self.backgroundView && image) {
+        self.backgroundView = [[UIImageView alloc] initWithImage:image];
+        self.backgroundView.frame = self.view.bounds;
+        self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.view insertSubview:self.backgroundView atIndex:0];
+    } else if (image == nil) {
+        [self.backgroundView removeFromSuperview];
+        self.backgroundView = nil;
+    } else {
+        self.backgroundView.image = image;
+    }
 }
 
 #pragma mark controller replacement
@@ -155,7 +171,8 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
         self.menuController.view.frame = menuFrame;
         self.menuController.view.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
         self.view.backgroundColor = self.menuController.view.backgroundColor;
-        [self.view insertSubview:self.menuController.view atIndex:0];
+        if (self.backgroundView) [self.view insertSubview:self.menuController.view aboveSubview:self.backgroundView];
+        else [self.view insertSubview:self.menuController.view atIndex:0];
     }
 }
 
@@ -167,7 +184,7 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
     // animate
     __weak typeof(self) blockSelf = self;
     [UIView animateWithDuration:animated ? JDSideMenuDefaultOpenAnimationTime : 0.0 delay:0
-         usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:0 animations:^{
+         usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
              blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
              [self statusBarView].transform = blockSelf.containerView.transform;
          } completion:nil];
