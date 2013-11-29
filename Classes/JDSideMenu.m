@@ -153,7 +153,9 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled: {
             if (velocity.x > 5.0 || (velocity.x >= -1.0 && translation.x > JDSideMenuMinimumRelativePanDistanceToOpen*self.menuWidth)) {
-                [self showMenuAnimated:YES];
+                CGFloat transformedVelocity = velocity.x/ABS(self.menuWidth - translation.x);
+                CGFloat duration = JDSideMenuDefaultOpenAnimationTime * 0.66;
+                [self showMenuAnimated:YES duration:duration initialVelocity:transformedVelocity];
             } else {
                 [self hideMenuAnimated:YES];
             }
@@ -178,13 +180,20 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
 
 - (void)showMenuAnimated:(BOOL)animated;
 {
+    [self showMenuAnimated:animated duration:JDSideMenuDefaultOpenAnimationTime
+           initialVelocity:1.0];
+}
+
+- (void)showMenuAnimated:(BOOL)animated duration:(CGFloat)duration
+         initialVelocity:(CGFloat)velocity;
+{
     // add menu view
     [self addMenuControllerView];
     
     // animate
     __weak typeof(self) blockSelf = self;
-    [UIView animateWithDuration:animated ? JDSideMenuDefaultOpenAnimationTime : 0.0 delay:0
-         usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:1.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:animated ? duration : 0.0 delay:0
+         usingSpringWithDamping:JDSideMenuDefaultDamping initialSpringVelocity:velocity options:UIViewAnimationOptionAllowUserInteraction animations:^{
              blockSelf.containerView.transform = CGAffineTransformMakeTranslation(self.menuWidth, 0);
              [self statusBarView].transform = blockSelf.containerView.transform;
          } completion:nil];
