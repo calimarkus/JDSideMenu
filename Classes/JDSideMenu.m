@@ -146,7 +146,7 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
             break;
         }
         case UIGestureRecognizerStateChanged: {
-            [recognizer.view setTransform:CGAffineTransformMakeTranslation(translation.x, 0)];
+            [recognizer.view setTransform:CGAffineTransformMakeTranslation(MAX(0,translation.x), 0)];
             [self statusBarView].transform = recognizer.view.transform;
             break;
         }
