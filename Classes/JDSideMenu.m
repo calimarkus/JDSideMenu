@@ -86,7 +86,7 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
 #pragma mark controller replacement
 
 - (void)setContentController:(UIViewController*)contentController
-                     animted:(BOOL)animated;
+                    animated:(BOOL)animated;
 {
     if (contentController == nil) return;
     UIViewController *previousController = self.contentController;

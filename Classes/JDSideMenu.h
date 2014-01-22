@@ -21,7 +21,7 @@
                  menuController:(UIViewController*)menuController;
 
 - (void)setContentController:(UIViewController*)contentController
-                     animted:(BOOL)animated;
+                    animated:(BOOL)animated;
 
 // show / hide manually
 - (void)showMenuAnimated:(BOOL)animated;

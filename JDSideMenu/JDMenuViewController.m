@@ -32,7 +32,7 @@
     
     UIViewController *contentController = [[UINavigationController alloc]
                                            initWithRootViewController:viewController];
-    [self.sideMenuController setContentController:contentController animted:YES];
+    [self.sideMenuController setContentController:contentController animated:YES];
 }
 
 @end
