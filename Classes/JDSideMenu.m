@@ -14,8 +14,8 @@ const CGFloat JDSideMenuDefaultMenuWidth = 260.0;
 const CGFloat JDSideMenuDefaultDamping = 0.5;
 
 // animation times
-const CGFloat JDSideMenuDefaultOpenAnimationTime = 1.2;
-const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.4;
+const CGFloat JDSideMenuDefaultOpenAnimationTime = 1.0;
+const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.3;
 
 @interface JDSideMenu ()
 @property (nonatomic, strong) UIImageView *backgroundView;
