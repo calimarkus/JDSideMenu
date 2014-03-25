@@ -12,10 +12,13 @@
 
 - (JDSideMenu*)sideMenuController;
 {
-    if ([self.parentViewController isKindOfClass:[JDSideMenu class]]) {
-        return (JDSideMenu*)self.parentViewController;
+    UIViewController *controller = self.parentViewController;
+    while (controller) {
+        if ([controller isKindOfClass:[JDSideMenu class]]) {
+            return (JDSideMenu*)controller;
+        }
+        controller = controller.parentViewController;
     }
-    
     return nil;
 }
 
